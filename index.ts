@@ -2,10 +2,7 @@ import Server from "./clases/server";
 import fileupload from 'express-fileupload';
 import bodyParser from "body-parser";
 import cors from 'cors';
-
-
 import mongoose from "mongoose";
-
 import usuarioRutas from "./rutas/usuario";
 import contactoRutas from "./rutas/contacto";
 import yoRutas from "./rutas/imagenesYo";
@@ -14,6 +11,7 @@ import tecnologiasRutas from "./rutas/tecnologia";
 import noticiasRutas from "./rutas/noticias";
 import express from 'express';
 import path from 'path';
+
 
 const server = new Server();
 
