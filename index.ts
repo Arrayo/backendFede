@@ -12,7 +12,7 @@ import yoRutas from "./rutas/imagenesYo";
 import sobreMiRutas from "./rutas/sobreMi";
 import tecnologiasRutas from "./rutas/tecnologia";
 import noticiasRutas from "./rutas/noticias";
-
+import express from 'express';
 
 const server = new Server();
 
@@ -28,6 +28,7 @@ server.app.use(cors({ origin: true, credentials: true }));
 server.app.use(fileupload());
 
 // Rutas
+server.app.use(express.static(__dirname + '/public'));
 server.app.use('/usuario', usuarioRutas);
 server.app.use('/contacto', contactoRutas);
 server.app.use('/uploadYo', yoRutas);
