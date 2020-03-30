@@ -29,7 +29,7 @@ server.app.use(cors({ origin: true, credentials: true }));
 server.app.use(fileupload());
 
 // Rutas
-server.app.use(express.static(path.join((__dirname + '/public')));
+server.app.use(express.static(path.join((__dirname + '/public'))));
 server.app.use('/usuario', usuarioRutas);
 server.app.use('/contacto', contactoRutas);
 server.app.use('/uploadYo', yoRutas);
