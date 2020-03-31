@@ -41,12 +41,12 @@ server.app.use('/noticias', noticiasRutas);
 let mongoDB: string;
 
 if (process.env.NODE_ENV === 'production') {
-    mongoDB = 'mongodb+srv://moro:OR5BRnAXedqikZg8@cluster0-d6hzk.mongodb.net/FedeDJBase'
+    mongoDB = 'mongodb+srv://moro:UF0Mzk3RMgjLl2qr@cluster0-d6hzk.mongodb.net/FedeDJBase'
 } else {
     mongoDB = 'mongodb://localhost:27017/FedeDJBase'
 }
 mongoose.connect(
-    mongoDB,
+    'mongodb+srv://moro:UF0Mzk3RMgjLl2qr@cluster0-d6hzk.mongodb.net/FedeDJBase',
     { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false },
     (err) => {
         if (err) throw "err";
