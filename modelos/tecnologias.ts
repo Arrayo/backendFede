@@ -6,7 +6,6 @@ const tecnologiaSchema = new Schema({
         type: String,
         required: [true, 'El icono es obligatorio']
     },
-
     tecnologia: {
         type: String,
         required: [true, 'La tecnología es obligatorio']
@@ -15,7 +14,6 @@ const tecnologiaSchema = new Schema({
         type: String,
         required: [true, 'La experiencia es obligatorio']
     }
-
 });
 
 interface ITecnologia extends Document {

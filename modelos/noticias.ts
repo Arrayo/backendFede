@@ -46,7 +46,6 @@ noticiasSchema.pre<INoticias>('save', function (next) {
 
 });
 
-
 interface INoticias extends Document {
     created: Date;
     titulo: string;

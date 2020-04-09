@@ -14,7 +14,6 @@ yoRutas.post('/', autentificacion_1.verificarToken, (req, res) => {
     const body = req.body;
     const file = req.files.img;
     body.img = file.name;
-    // console.log(file);
     imagenesYo_1.ImagenesYo.create(body).then(imgYoDB => {
         res.json({
             ok: true,

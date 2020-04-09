@@ -12,10 +12,7 @@ import noticiasRutas from "./rutas/noticias";
 import express from 'express';
 import path from 'path';
 
-
-
 const server = new Server();
-
 
 // Body Parser
 server.app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,7 +34,6 @@ server.app.use('/tenologia', tecnologiasRutas);
 server.app.use('/noticias', noticiasRutas);
 
 // Conectar Base de Datos
-
 let mongoDB: string;
 
 if (process.env.NODE_ENV === 'production') {
@@ -46,14 +42,13 @@ if (process.env.NODE_ENV === 'production') {
     mongoDB = 'mongodb://localhost:27017/FedeDJBase'
 }
 mongoose.connect(
-    'mongodb+srv://moro:UF0Mzk3RMgjLl2qr@cluster0-d6hzk.mongodb.net/FedeDJBase',
+    mongoDB,
     { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false },
     (err) => {
         if (err) throw "err";
         console.log('Base de datos ONLINE');
     }
 )
-
 
 // Levantar el servidor
 server.start(() => {

@@ -1,7 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-
 const usuarioSchema = new Schema({
 
     nombre: {
@@ -9,7 +8,6 @@ const usuarioSchema = new Schema({
         unique: true,
         required: [true, 'El nombre es obligatorio']
     },
-
     password: {
         type: String,
         unique: true,
@@ -25,7 +23,6 @@ usuarioSchema.method('compararContrasena', function (password: string = ''): boo
         return false;
     }
 });
-
 
 interface IYo extends Document {
     nombre: string;

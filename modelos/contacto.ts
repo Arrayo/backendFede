@@ -4,7 +4,6 @@ const contactoSchema = new Schema({
     created: {
         type: Date
     },
-
     email: {
         type: String,
         required: [true, 'El email es obligatorio']
@@ -19,7 +18,6 @@ contactoSchema.pre<IContacto>('save', function (next) {
     this.created = new Date();
     next();
 });
-
 
 interface IContacto extends Document {
     created: Date;

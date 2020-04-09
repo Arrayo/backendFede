@@ -4,10 +4,8 @@ import { SobreMi } from '../modelos/sobreMi';
 
 const sobreMiRutas = Router();
 
-
 // Crear sobreMí
 sobreMiRutas.post('/', verificarToken, (req: any, res: Response) => {
-
     const body = req.body;
     body.titulo = 'Federica Daniela Jiménez'
 
@@ -19,14 +17,11 @@ sobreMiRutas.post('/', verificarToken, (req: any, res: Response) => {
     }).catch(err => {
         res.json(err)
     });
-
 });
 
 // Actualizar sobreMí
 sobreMiRutas.post('/update/:id', verificarToken, (req: any, res: Response) => {
-
     const id = req.params.id;
-
     const sobreMi = {
         texto1: req.body.texto1,
         texto2: req.body.texto2,
@@ -36,7 +31,6 @@ sobreMiRutas.post('/update/:id', verificarToken, (req: any, res: Response) => {
     }
 
     SobreMi.findByIdAndUpdate(id, sobreMi, { new: true }, (err, sobreMiDB) => {
-
         if (err) throw err;
         if (!sobreMiDB) {
             return res.json({

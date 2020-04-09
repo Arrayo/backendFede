@@ -2,15 +2,11 @@ import { Router, Response } from 'express';
 import { verificarToken } from '../middelwares/autentificacion';
 import { Tecnologias } from '../modelos/tecnologias';
 
-
 const tecnologiasRutas = Router();
-
 
 // Crear tecnología
 tecnologiasRutas.post('/', verificarToken, (req: any, res: Response) => {
-
     const body = req.body;
-
     Tecnologias.create(body).then(tecnologiaDB => {
         res.json({
             ok: true,
@@ -21,13 +17,10 @@ tecnologiasRutas.post('/', verificarToken, (req: any, res: Response) => {
     });
 });
 
-
 // Obtener tecnología
 tecnologiasRutas.get('/', async (req: any, res: Response) => {
-
     const tecnologias = await Tecnologias.find()
         .exec();
-
     res.json({
         ok: true,
         tecnologias
@@ -36,17 +29,13 @@ tecnologiasRutas.get('/', async (req: any, res: Response) => {
 
 // Actualizar tecnología
 tecnologiasRutas.post('/update/:id', verificarToken, (req: any, res: Response) => {
-
     const id = req.params.id;
-
     const tecnologia = {
         icono: req.body.icono,
         tecnologia: req.body.tecnologia,
         experiencia: req.body.experiencia,
     }
-
     Tecnologias.findByIdAndUpdate(id, tecnologia, { new: true }, (err, tecnologiaDB) => {
-
         if (err) throw err;
         if (!tecnologiaDB) {
             return res.json({
@@ -59,6 +48,6 @@ tecnologiasRutas.post('/update/:id', verificarToken, (req: any, res: Response) =
             tecnologia
         });
     });
-
 });
+
 export default tecnologiasRutas;

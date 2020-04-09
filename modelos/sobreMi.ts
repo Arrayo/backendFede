@@ -5,7 +5,6 @@ const sobreMiSchema = new Schema({
     titulo: {
         type: String
     },
-
     texto1: {
         type: String
     },
@@ -22,7 +21,6 @@ const sobreMiSchema = new Schema({
         type: String
     }
 });
-
 
 interface ISobreMi extends Document {
     titulo: string;

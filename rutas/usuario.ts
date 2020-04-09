@@ -1,6 +1,5 @@
 import { Router, Request, Response } from "express";
 import { Usuario } from "../modelos/usuario";
-
 import bcrypt from 'bcryptjs';
 import Token from "../clases/token";
 // import { verificarToken } from "../middelwares/autentificacion";
@@ -9,7 +8,6 @@ const usuarioRutas = Router();
 
 // Crear Usuario
 usuarioRutas.post('/crear', (req: Request, res: Response) => {
-
     const usuario = {
         nombre: req.body.nombre,
         password: bcrypt.hashSync(req.body.password, 10)
@@ -18,7 +16,6 @@ usuarioRutas.post('/crear', (req: Request, res: Response) => {
     // Grabar usuario en Base de Datos
     Usuario.create(usuario)
         .then(usuarioDB => {
-
             res.json({
                 ok: true,
                 usuario: usuarioDB
@@ -35,7 +32,6 @@ usuarioRutas.post('/crear', (req: Request, res: Response) => {
 // Login
 usuarioRutas.post('/entrar', (req: Request, res: Response) => {
     const body = req.body;
-
     Usuario.findOne({ nombre: body.nombre }, (err, usuarioDB) => {
         if (err) throw err;
         if (!usuarioDB) {
@@ -44,17 +40,12 @@ usuarioRutas.post('/entrar', (req: Request, res: Response) => {
                 mensaje: 'Invalid data'
             });
         }
-
         if (usuarioDB.compararContrasena(body.password)) {
-
             const miToken = Token.getToken({
-
                 _id: usuarioDB._id,
                 nombre: usuarioDB.nombre,
                 password: usuarioDB.password
-
             });
-
             res.json({
                 ok: true,
                 token: miToken
