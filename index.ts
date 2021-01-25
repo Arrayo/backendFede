@@ -37,7 +37,7 @@ server.app.use('/noticias', noticiasRutas);
 let mongoDB: string;
 
 if (process.env.NODE_ENV === 'production') {
-    mongoDB = 'mongodb+srv://moro:UF0Mzk3RMgjLl2qr@cluster0-d6hzk.mongodb.net/FedeDJBase'
+    mongoDB = 'Tu conexión a mongo Atlas'
 } else {
     mongoDB = 'mongodb://localhost:27017/FedeDJBase'
 }

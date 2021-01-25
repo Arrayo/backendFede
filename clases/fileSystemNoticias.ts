@@ -6,7 +6,7 @@ export default class FileSystemNoticias {
     constructor() { }
 
     guardarImg(file: any) {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             // Crear carpeta
             const path = this.crearCarpetaImagenNoticia();
             // Nombre del archivo
@@ -37,7 +37,7 @@ export default class FileSystemNoticias {
     }
 
     guardarImgYo(file: any) {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             // Crear carpeta
             const path = this.crearCarpetaImagenYo();
             // Nombre del archivo

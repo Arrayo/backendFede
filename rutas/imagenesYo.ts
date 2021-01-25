@@ -42,18 +42,18 @@ yoRutas.post('/update', verificarToken, (req: any, res: Response) => {
 });
 
 // Borrar imagen
-// yoRutas.delete('/:id/:name', verificarToken, (req: any, res: Response) => {
-//     const id = req.params.id;
-//     const name = req.params.name;
-//     ImagenesYo.findByIdAndRemove(id, (err, imgBorrar) => {
-//         if (err) throw err;
-//         res.json({
-//             ok: true,
-//             mensaje: 'Imagen eliminada',
-//             body: imgBorrar
-//         })
-//         fs.unlinkSync(path.resolve(__dirname, '../uploads', 'Federica', name));
-//     });
-// });
+yoRutas.delete('/:id/:name', verificarToken, (req: any, res: Response) => {
+    const id = req.params.id;
+    const name = req.params.name;
+    ImagenesYo.findByIdAndRemove(id, (err, imgBorrar) => {
+        if (err) throw err;
+        res.json({
+            ok: true,
+            mensaje: 'Imagen eliminada',
+            body: imgBorrar
+        })
+        fs.unlinkSync(path.resolve(__dirname, '../uploads', 'Federica', name));
+    });
+});
 
 export default yoRutas;

@@ -7,7 +7,7 @@ export default class FileSystemYo {
 
     guardarImagenYo(file: any, nombre: string) {
 
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             // Crear carpeta
             const path = this.crearCarpetaYo(nombre);
             // Nombre del archivo
